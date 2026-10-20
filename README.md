@@ -1,4 +1,4 @@
-# RL Penalty Kick Simulation ⚽🥅
+﻿# RL Penalty Kick Simulation
 
 An AI **goalkeeper** that learns to save penalty kicks with **PPO** (Proximal Policy
 Optimization) inside a **physics-based** 2D simulation.
@@ -29,7 +29,7 @@ click to aim your shot and the learned policy dives to stop it.
 ## Installation
 
 1. **Requirements**
-   - Python 3.9+ (3.10–3.13 recommended)
+   - Python 3.9+ (3.10-3.13 recommended)
    - A display for the PyGame window (the game opens a real window)
 
 2. **Create a virtual environment** (PowerShell syntax):
@@ -105,7 +105,7 @@ consistently scaled inputs:
 
 ### Action Space
 
-`Discrete(3)` — a simple horizontal movement decision each step:
+`Discrete(3)` - a simple horizontal movement decision each step:
 
 | Action | Behaviour |
 |--------|-----------|
@@ -130,7 +130,7 @@ The `-0.25` timeout penalty discourages passive policies that never commit to a 
 
 ### Critical Consistency Rule
 
-The observation layout, normalization, and action→movement logic in
+The observation layout, normalization, and action->movement logic in
 [`goalkeeper_ai.py`](goalkeeper_ai.py) **must stay identical** to
 [`GoalkeeperEnv`](goalkeeper_env.py). If they drift, the deployed network receives
 inputs it never saw during training and its decisions become meaningless.
@@ -141,21 +141,22 @@ inputs it never saw during training and its decisions become meaningless.
 
 ```
 rl/
-├── penalty_game.py       # Physics + PyGame interactive shootout
-├── goalkeeper_env.py     # Gymnasium RL environment
-├── goalkeeper_ai.py      # Deployed PPO agent (used by penalty_game.py)
-├── train.py              # Train the PPO policy
-├── evaluate.py           # Benchmark the trained policy
-├── models/
-│   └── goalkeeper_ppo.zip  # Pretrained model
-└── .gitignore
+|- penalty_game.py        # Physics + PyGame interactive shootout
+|- goalkeeper_env.py      # Gymnasium RL environment
+|- goalkeeper_ai.py       # Deployed PPO agent (used by penalty_game.py)
+|- train.py               # Train the PPO policy
+|- evaluate.py            # Benchmark the trained policy
+|- models/
+|  |- goalkeeper_ppo.zip  # Pretrained model
+|- .gitignore
+|- README.md
 ```
 
 ---
 
 ## Tech Stack
 
-`Python` · [Gymnasium] · [Stable-Baselines3 (PPO)] · [PyMunk] · [PyGame]
+`Python` | [Gymnasium] | [Stable-Baselines3 (PPO)] | [PyMunk] | [PyGame]
 
 [//]: # (links)
 [Gymnasium]: https://gymnasium.farama.org/
